@@ -54,17 +54,18 @@ class DataFileProcess {
 } //end class
 ```
 
-### ตัวอย่างการใช้งาน
+## ตัวอย่างการใช้งาน
 ```dart
+DataFileProcess dataFile = DataFileProcess();
+
 // การอ่านข้อมูลจากไฟล์ในรูปแบบของสตริง
 String dataStr = await dataFile.readData();
 
 // การบันทึกข้อมูล String ลงในไฟล์
-DataFileProcess dataFile = DataFileProcess();
 fileProcess.writeData('{}');
 ```
 
-### ตัวอย่างการสร้าง JSON และบันทึกข้อมูลลงในไฟล์
+## ตัวอย่างการสร้าง JSON และบันทึกข้อมูลลงในไฟล์
 ```dart
 DataFileProcess fileProcess = DataFileProcess();
 List<Map> listData = [];
