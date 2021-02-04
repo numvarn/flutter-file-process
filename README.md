@@ -86,12 +86,12 @@ fileProcess.writeData(jsondata.toString());
 ## ตัวอย่างการอ่านข้อมูลจากไฟล์
 
 ```dart
+var dataJSON;
 List<Map> dataList = [];
+String dataStr = await dataFile.readData();
 
 Future<String> _getFile() async {
   DataFileProcess dataFile = DataFileProcess();
-  String dataStr = await dataFile.readData();
-  var dataJSON;
 
   if (dataList.length == 0 && dataStr != null && dataStr != '{}') {
     dataJSON = jsonDecode(dataStr);
