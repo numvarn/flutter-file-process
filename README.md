@@ -83,6 +83,30 @@ var jsondata = jsonEncode(listData);
 fileProcess.writeData(jsondata.toString());
 ```
 
+## ตัวอย่างการอ่านข้อมูลจากไฟล์
+
+```dart
+List<Map> dataList = [];
+
+Future<String> _getFile() async {
+  DataFileProcess dataFile = DataFileProcess();
+  String dataStr = await dataFile.readData();
+  var dataJSON;
+
+  if (dataList.length == 0 && dataStr != null && dataStr != '{}') {
+    dataJSON = jsonDecode(dataStr);
+    for (var item in dataJSON) {
+      Map<String, dynamic> dataMap = {
+        'id': item['id'],
+        'msg': item['msg'],
+      };
+      dataList.add(dataMap);
+    }
+  }
+  return 'success';
+}
+```
+
 ## ตัวอย่างการลบรายการข้อมูลที่เลือกออกจากไฟล์
 
 ```dart
