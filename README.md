@@ -82,3 +82,25 @@ var jsondata = jsonEncode(listData);
 
 fileProcess.writeData(jsondata.toString());
 ```
+
+## ตัวอย่างการลบรายการข้อมูลที่เลือกออกจากไฟล์
+
+```dart
+Future<void> _deleteMessage() async {
+  // Remove element from list
+  dataList.removeWhere((element) => element['id'] == selectedID.toString());
+
+  // Convert List to json
+  var jsondata = jsonEncode(dataList);
+  if (jsondata.length != 0) {
+    dataFile.writeData(jsondata.toString());
+  } else {
+    dataFile.writeData('{}');
+  }
+
+  Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (context) => MyHomePage(title: 'File Process')));
+}
+```
